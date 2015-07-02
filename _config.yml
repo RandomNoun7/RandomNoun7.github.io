@@ -1,0 +1,10 @@
+excerpt_separator: ""
+pygments: true
+markdown: kramdown
+url: http://RandomNoun7.github.io
+title: CompuFlailing
+email: hurt.bill@gmail.com
+author: Bill Hurt
+description: Mostly Flailing around, but who knows. Maybe I'll learn something.
+paginate: 5
+google_analytics: 
