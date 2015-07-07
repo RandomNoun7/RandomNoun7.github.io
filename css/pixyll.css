@@ -175,6 +175,10 @@ body {
   background-color: #999;
 }
 
+.linenodiv {
+	border-right: solid gray;
+}
+
 .linenodiv pre {
 	background-color: #002b36;
 }
@@ -205,8 +209,8 @@ code {
 
 pre {
   padding: 1rem;
-  font-size: 1.125rem;
-  line-height: 1.25rem;
+  font-size: .75rem;
+  line-height: .75rem;
   overflow-x: auto;
   margin-bottom: 1rem;
 }
@@ -214,6 +218,10 @@ pre {
 .highlight .p {
   font-size: 1.125rem;
   line-height: 1.125rem;
+}
+
+table.highlightable {
+	border-collapse: collapse;
 }
 
 blockquote {
