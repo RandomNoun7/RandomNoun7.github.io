@@ -22,7 +22,13 @@
                 
                 var split = lines.split("\n")
                 
-                alert(split[2])
+                $(".linenodiv pre code").text("")
+                
+                for(i=0 ; i < split.length; i++){
+                    var cur = "<span class=lineno>" + split[i] + "</span>"
+                    
+                    $(".linenodiv pre code").append(cur)
+                }
             }
         );
     </script>
