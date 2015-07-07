@@ -22,12 +22,12 @@
                 
                 var split = lines.split("\n")
                 
-                $(".linenodiv pre").text("")
+                $(".linenodiv pre code").text("")
                 
                 for(i=0 ; i < split.length; i++){
                     var cur = "<span class=lineno>" + split[i] + "</span>\n"
                     
-                    $(".linenodiv pre").append(cur)
+                    $(".linenodiv pre code").append(cur)
                 }
             }
         );
