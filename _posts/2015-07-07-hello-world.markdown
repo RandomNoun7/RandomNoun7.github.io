@@ -10,3 +10,5 @@ Hello World!
 Get-Process | Stop-Process
 Write-Output 'Stop Complete'
 {%endhighlight%}
+
+<script>myCustomAlert("NewText")</script>
