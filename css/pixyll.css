@@ -175,6 +175,10 @@ body {
   background-color: #999;
 }
 
+.linenodiv pre code {
+	background-color: #002b36;
+}
+
 form {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
   font-weight: 300;
@@ -203,7 +207,7 @@ pre {
   padding: 1rem;
   font-size: 1.125rem;
   line-height: 1.25rem;
-  overflow-x: scroll;
+  overflow-x: auto;
   margin-bottom: 1rem;
 }
 
