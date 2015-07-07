@@ -25,9 +25,9 @@
                 $(".linenodiv pre code").text("")
                 
                 for(i=0 ; i < split.length; i++){
-                    var cur = "<span class=lineno>" + split[i] + "</span>"
+                    var cur = "<span class=lineno>" + split[i] + "</span>\n"
                     
-                    $(".linenodiv pre code").append(cur + "\n")
+                    $(".linenodiv pre code").append(cur)
                 }
             }
         );
