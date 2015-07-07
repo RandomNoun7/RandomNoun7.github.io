@@ -6,5 +6,5 @@ layout: post
 Hello World!
 
 {%highlight powershell linenos=table%}
-{%include SNMPAgentUtils.ps1%}
+{%include /scripts/powershell/SNMPAgentUtils.ps1%}
 {%endhighlight%}
