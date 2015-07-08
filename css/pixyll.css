@@ -230,6 +230,7 @@ table.highlighttable {
 
 td {
 	border-spacing:0;
+	padding:0;
 }
 
 blockquote {
