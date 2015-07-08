@@ -17,21 +17,26 @@
     <link href='http://fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>$(document).ready(function(){
-               $(".linenodiv pre code").each(function(index,element){
-					var lines = $(this).text()
-					
-					var split = lines.split("\n")
-					
-					for(i=0 ; i < split.length; i++)
-					{
-						var cur = "<span class=lineno>" + split[i] + "</span>\n"
-                    
-						$(this).append(cur)
-					}
-					
-			   });
-			};
+    <script>$(document).ready(
+								function()
+								{
+								   $(".linenodiv pre code").each(
+									   function(index,element)
+									   {
+											var lines = $(this).text()
+											
+											var split = lines.split("\n")
+											
+											for(i=0 ; i < split.length; i++)
+											{
+												var cur = "<span class=lineno>" + split[i] + "</span>\n"
+											
+												$(this).append(cur)
+											}
+											
+									   }
+								   );
+							}
 		);
     </script>
 </head>
