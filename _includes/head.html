@@ -18,24 +18,18 @@
     <link href='http://fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>$(document).ready(function(){
-                var blocks = $(".linenodiv pre code")
-				
-				for(y=0;y < blocks.length;y++)
-				{
-					var lines = $("blocks")[y].text()
-                
+               $(".linenodiv pre code").each(function(index,element){
+					var lines = $(this).text()
+					
 					var split = lines.split("\n")
 					
-					blocks[y].text("")
-                
 					for(i=0 ; i < split.length; i++)
 					{
 						var cur = "<span class=lineno>" + split[i] + "</span>\n"
                     
-						blocks[y].append(cur)
+						$(this).append(cur)
 					}
-				}
-            }
-        );
+					
+			   });
     </script>
 </head>
