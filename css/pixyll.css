@@ -181,6 +181,11 @@ body {
 
 .linenodiv pre {
 	background-color: #002b36;
+	line-height: 80%;
+}
+
+.highlight{
+	line-height:80%;
 }
 
 form {
