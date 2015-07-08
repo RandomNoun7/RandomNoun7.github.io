@@ -177,11 +177,11 @@ body {
 
 .linenodiv {
 	border-right: solid gray;
+	line-height: 80%;
 }
 
 .linenodiv pre {
 	background-color: #002b36;
-	line-height: 80%;
 }
 
 .highlight{
