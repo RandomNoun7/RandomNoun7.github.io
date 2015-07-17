@@ -16,4 +16,20 @@
     <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>$(document).ready(function(){
+                var lines = $(".linenodiv pre code").text()
+                
+                var split = lines.split("\n")
+                
+                $(".linenodiv pre code").text("")
+                
+                for(i=0 ; i < split.length; i++){
+                    var cur = "<span class=lineno>" + split[i] + "</span>\n"
+                    
+                    $(".linenodiv pre code").append(cur)
+                }
+            }
+        );
+    </script>
 </head>

@@ -177,15 +177,10 @@ body {
 
 .linenodiv {
 	border-right: solid gray;
-	line-height: 80%;
 }
 
 .linenodiv pre {
 	background-color: #002b36;
-}
-
-.highlight{
-	line-height:80%;
 }
 
 form {
@@ -215,10 +210,9 @@ code {
 pre {
   padding: 1rem;
   font-size: .75rem;
+  line-height: .75rem;
   overflow-x: auto;
   margin-bottom: 1rem;
-  tab-size: 3;
-  -moz-tab-size: 3;
 }
 
 .highlight .p {
@@ -226,13 +220,8 @@ pre {
   line-height: 1.125rem;
 }
 
-table.highlighttable {
+table.highlightable {
 	border-collapse: collapse;
-}
-
-td {
-	border-spacing:0;
-	padding:0;
 }
 
 blockquote {
