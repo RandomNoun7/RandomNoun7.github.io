@@ -9,7 +9,7 @@ Hello World!
 #this is a powershell comment
 Get-Process | Stop-process
 Write-output 'Done'
-{%endhighight%}
+{%endhighlight%}
 
 {%highlight SQL linenos=table%}
 SELECT
