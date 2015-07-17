@@ -5,11 +5,11 @@ layout: post
 ---
 Hello World!
 
-```powershell
+{%highlight powershelgl linenos%}
 #this is a powershell comment
 Get-Process | Stop-process
 Write-output 'Done'
-```
+{%endhighight%}
 
 {%highlight SQL linenos=table%}
 SELECT
