@@ -5,7 +5,7 @@ layout: post
 ---
 Hello World!
 
-{%highlight powershelgl linenos%}
+{%highlight powershell linenos%}
 #this is a powershell comment
 Get-Process | Stop-process
 Write-output 'Done'
