@@ -5,6 +5,4 @@ layout: post
 ---
 Hello World!
 
-{%highlight powershell linenos=table%}
-{%include SNMPAgentUtils.ps1%}
-{%endhighlight%}
+Just some regular text. Nothing Special. 
