@@ -17,6 +17,3 @@ Get-Service | Stop-Service
 Write-Host 'Done'
 </pre>
 
-<script type="text/javascript">
-     SyntaxHighlighter.all()
-</script>
