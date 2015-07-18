@@ -11,7 +11,7 @@ Just some regular text. Nothing Special.
 
 {%endhighlight%}
 
-<pre class="brush: Powershell">
+<pre class="brush: powershell">
 # This is a powershell comment
 Get-Service | Stop-Service
 Write-Host 'Done'
