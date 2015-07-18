@@ -8,7 +8,11 @@ Hello World!
 Just some regular text. Nothing Special. 
 
 {%highlight powershell%}
+
+{%endhighlight%}
+
+<pre class="brush: Powershell">
 # This is a powershell comment
 Get-Service | Stop-Service
 Write-Host 'Done'
-{%endhighlight%}
+</pre>
