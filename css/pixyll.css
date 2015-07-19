@@ -209,15 +209,15 @@ code {
 
 pre {
   padding: 1rem;
-  font-size: .65rem;
-  line-height: .65rem;
+  font-size: .75rem;
+  line-height: .75rem;
   overflow-x: auto;
   margin-bottom: 1rem;
 }
 
 .highlight .p {
-  font-size: .65rem;
-  line-height: 1rem;
+  font-size: 1.125rem;
+  line-height: 1.125rem;
 }
 
 table.highlightable {
