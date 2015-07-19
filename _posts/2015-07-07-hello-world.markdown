@@ -5,15 +5,7 @@ layout: post
 ---
 Hello World!
 
-Just some regular text. Nothing Special. 
-
-{%highlight powershell%}
-
-{%endhighlight%}
-
 <pre class="brush: powershell">
-# This is a powershell comment
-Get-Service | Stop-Service
-Write-Host 'Done'
+{%include Scripts/Powershell.SNMPAgentUtils.ps1 %}
 </pre>
 
