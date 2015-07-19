@@ -221,7 +221,10 @@ div.highlight{
 	tab-size: 3;
 }
 
-span.p
+span.p {
+	font-size: .75rem;
+	line-height: .8rem;
+}
 table.highlightable {
 	border-collapse: collapse;
 }
