@@ -5,7 +5,7 @@ layout: post
 ---
 Hello World!
 
-<pre class="brush: powershell">
+{%highlight powershell%}
 {% include Scripts/Powershell/SNMPAgentUtils.ps1 %}
-</pre>
+{%endhighlight%}
 
