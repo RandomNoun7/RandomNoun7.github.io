@@ -220,6 +220,12 @@ pre {
   line-height: 1.125rem;
 }
 
+div.highlight{
+	font-size: .75rem !important;
+	line-hieght: .75rem !important;
+	tab-size: 3;
+}
+
 table.highlightable {
 	border-collapse: collapse;
 }
