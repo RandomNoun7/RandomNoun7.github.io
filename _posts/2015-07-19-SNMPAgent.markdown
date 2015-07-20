@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: SNMP Agent Functions
 layout: post
 ---
@@ -8,16 +8,16 @@ layout: post
 Hello everyone. Welcome to the inaugural blog post in whatever it is that this becomes. I'll take some time in a later post to talk about how this place is set up why I like it, but for now, lets talk about some code. 
 
 ### The problem
-Your company uses the SNMP Agent string to keep track of who owns equipment on the network. I get why you would do this, it's cross platform, lightweight, but Windows support for managing this value is less than awesome. Most of the tutorials for managing it in Windows are based on clicking around in the GUI. This is the DevOps Era, clicking around in the GUI to accomplish management tasks like this is so 2008.
-
-Specifically there are two questions we want to answer:
-1. How 
+I want to use some automation tools to help me keep this contact info up to date, but Windows support for getting this string programmatically isn't very good. Most tutorials for managing this value involve clicking around in the GUI. Below is the code for a couple easy functions to get and set this value remotely on large numbers of Windows machines, and a helper I wrote for gathering the names of the machines I want to manage based on their Active Directory OU's, just because that happened to be useful to me. Below the code I'll talk briefly about how I'm using the functions with Jenkins and Pester testing to automate notifications when someone leaves the company and I need to make sure some one new takes responsibility for a server.
 
 {%highlight powershell%}
 {% include Scripts/Powershell/SNMPAgentUtils.ps1 %}
 {%endhighlight%}
 
 ### Lets talk about it
-Most of us are familiar with the problem. We work in large companies, or have worked with them, and we come across a server on the network and want to know who it belongs to. But just as bad or worse is the problem of keeping that servers contact information up to date.
+Now we have a nice programatic way of getting the contact info for a bunch of servers, but how do we turn that into an actual process?
 
-We've all seen it happen. Someone is leaving the company that was responsible for a lot of stuff, and especially if they are leaving suddenly it might not occur to anyone to transfer ownership of their servers decide if they are even still needed. 
+For me, the answer is that we turn this into a Jenkins job. Many of you are familiar with Jenkins as a build server, but if you think a little more generally, it's also just a great general task runner, especially for anything that you can express in terms of pass fail testing, and that's where Pester comes in. 
+
+In the Jenkins job the tests look like this:
+1. Gather my list of computers using the 
