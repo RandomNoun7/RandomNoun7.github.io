@@ -20,4 +20,12 @@ Now we have a nice programatic way of getting the contact info for a bunch of se
 For me, the answer is that we turn this into a Jenkins job. Many of you are familiar with Jenkins as a build server, but if you think a little more generally, it's also just a great general task runner, especially for anything that you can express in terms of pass fail testing, and that's where Pester comes in. 
 
 In the Jenkins job the tests look like this:
-1. Gather my list of computers using the 
+
+1. Gather my list of computers using the Get-ComputersByOU function.
+2. Feed that list to the Get-SNMPAgent function to get your computer and agent objects.
+3. Use Pester tests to examine the owner/server pair to see if the combination is still valid. You can use any logic you like for this test. In my case the current test is simple. Is this user still an enabled user in Active Directory or a valid group. If not it means they probably left the company, and any servers they are still responsible for will be represented by failed Pester tests.
+4. Jenkins takes the Pester output (did you know Pester can output NUnit XML files? It's fantastic.) and marks the "build" as either successful (all servers have valid owners), or failed and takes action accordingly. In my case it sends me an email that one of my servers needs a new owner.
+
+In a later blog post we'll look at some of the code to make this happen. It's very short and elegant and will help ensure that anyone on the network who wants to know something about a server will always know exactly who to contact.
+
+Thanks for reading.
