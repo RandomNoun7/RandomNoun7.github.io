@@ -44,7 +44,7 @@ The thing is, Nirsoft has already done 90% of the work for us with its [Browsing
 {%highlight powershell%}
 $execPath = "C:\BrowsingHistoryView.exe"
 
-$computers = 'MP-BH-Jenkins','MP-BH-PSDEV'
+$computers = 'computer1','computer2','computer3','computer4'
 
 $outPath = "c:\"
 
