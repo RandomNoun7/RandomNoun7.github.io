@@ -40,7 +40,7 @@ But after trying a number of different approaches, including using [PSExec](http
 
 ### The Solution
 
-The thing is, Nirsoft has already 90% of the work for us with its [BrowserHistoryView](http://www.nirsoft.net/utils/browsing_history_view.html) tool. We just need to turn it into a script that will get us across the finish line.
+The thing is, Nirsoft has already 90% of the work for us with its [BrowsingHistoryView](http://www.nirsoft.net/utils/browsing_history_view.html) tool. We just need to turn it into a script that will get us across the finish line.
 {%highlight powershell%}
 $execPath = "C:\BrowsingHistoryView.exe"
 
