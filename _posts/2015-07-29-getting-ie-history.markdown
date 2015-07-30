@@ -35,6 +35,11 @@ function Get-History
             }
 ...
 {%endhighlight%}
+
+But after trying a number of different approaches, including using [PSExec](http://verbalprocessor.com/2007/12/05/running-a-cmd-prompt-as-local-system/) to run as the system user, I was unable to solve the fact that trying to get another users history this way just results in permissions errors. It's just not going to work.
+
+### The Solution
+
 {%highlight powershell%}
 $execPath = "C:\BrowsingHistoryView.exe"
 
