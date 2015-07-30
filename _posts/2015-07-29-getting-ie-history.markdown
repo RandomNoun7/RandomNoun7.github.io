@@ -40,6 +40,7 @@ But after trying a number of different approaches, including using [PSExec](http
 
 ### The Solution
 
+The thing is, Nirsoft has already 90% of the work for us with its [BrowserHistoryView](http://www.nirsoft.net/utils/browsing_history_view.html) tool. We just need to turn it into a script that will get us across the finish line.
 {%highlight powershell%}
 $execPath = "C:\BrowsingHistoryView.exe"
 
@@ -55,3 +56,7 @@ $computers |
                           "/scomma ""$outpath\history_$_.txt"""
     }
 {%endhighlight%}
+
+The summary is we give the script the location of the executable, the list of computers, and where we want the files to go. Execute the script and you get a nice tidy collection of csv text files with all of the browser history you need.
+
+This script is short and to the point, and uses a nice, lightweight, standalone executable to get the job done. Oh yeah, and it's free. 
