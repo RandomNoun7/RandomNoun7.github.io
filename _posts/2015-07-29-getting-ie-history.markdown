@@ -57,6 +57,6 @@ $computers |
     }
 {%endhighlight%}
 
-The summary is we give the script the location of the executable, the list of computers, and where we want the files to go. Execute the script and you get a nice tidy collection of csv text files with all of the browser history you need.
+The summary is we give the script the location of the executable, the list of computers, and where we want the files to go. Execute the script and you get a nice tidy collection of csv text files, one per machine, with all of the browser history you need.
 
 I have no idea how NirSoft is getting this information, but the script is short and to the point, and uses a nice, lightweight, standalone executable to get the job done. It also gets all of the history on the machine, not just IE history. Oh yeah, and it's free.
