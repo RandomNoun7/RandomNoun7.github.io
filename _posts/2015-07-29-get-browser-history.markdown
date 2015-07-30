@@ -5,7 +5,7 @@ layout: post
 ---
 Recently [@ImADataGuy](https://twitter.com/ImADataGuy) posed an interesting question on Twitter. Is there an easy way to use Powershell to get the Internet Explorer browsing history for all users on a computer?
 
-If you've worked long enough in IT you know that this is pretty common request by managers for a variety of reasons. But posing it in this way is the start to a pretty deep rabbit hole if you aren't careful. 
+If you've worked long enough in IT you know that this is a pretty common request by managers for a variety of reasons. But posing it in this way is the start to a pretty deep rabbit hole if you aren't careful. 
 
 It's one thing to target a single user on a single machine. But how can I make it easy to harvest the browser history for all users for a collection of machines?
 
