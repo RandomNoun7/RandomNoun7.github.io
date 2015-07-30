@@ -3,7 +3,7 @@ published: true
 title: Getting Browser History. The Easy Way.
 layout: post
 ---
-Recently someone on Twitter posed an interesting question. Is there an easy way to use Powershell to get the Internet Explorer browsing history for all users on a computer?
+Recently [@ImADataGuy](https://twitter.com/ImADataGuy) posed an interesting question on Twitter. Is there an easy way to use Powershell to get the Internet Explorer browsing history for all users on a computer?
 
 If you've worked long enough in IT you know that this is pretty common request by managers for a variety of reasons. But posing it in this way is the start to a pretty deep rabbit hole if you aren't careful. 
 
