@@ -185,6 +185,57 @@ character Decimal Hex
                 0 0x0 
 {%endhighlight%}
 
+Lastly we see what the bytes look like in a file that looks fine to the linux but just a blob or text for us. This simple file is easy to fix manually, but if you're trying to set up automated data imports on a Windows system, this can be a real pain.
+{%highlight powershell%}
+PS C:\> Get-TextBytesTable -Path .\testFile3.txt -count 100
+
+character Decimal Hex 
+--------- ------- --- 
+        H      72 0x48
+        e     101 0x65
+        l     108 0x6c
+        l     108 0x6c
+        o     111 0x6f
+               32 0x20
+        W      87 0x57
+        o     111 0x6f
+        r     114 0x72
+        l     108 0x6c
+        d     100 0x64
+        !      33 0x21
+      ...      10 0xa 
+        A      65 0x41
+        n     110 0x6e
+        d     100 0x64
+               32 0x20
+        h     104 0x68
+        e     101 0x65
+        r     114 0x72
+        e     101 0x65
+               32 0x20
+        w     119 0x77
+        e     101 0x65
+               32 0x20
+        h     104 0x68
+        a      97 0x61
+        v     118 0x76
+        e     101 0x65
+               32 0x20
+        a      97 0x61
+        n     110 0x6e
+        o     111 0x6f
+        t     116 0x74
+        h     104 0x68
+        e     101 0x65
+        r     114 0x72
+               32 0x20
+        l     108 0x6c
+        i     105 0x69
+        n     110 0x6e
+        e     101 0x65
+        !      33 0x21
+{%endhighlight%}
+
 ### Fixing the File
 So now that we've seen how we can inspect the file, what can we do if the admin on the other end just doesn't know how to fix this. And by the way, this doesn't always mean they are incompetent. I've been told by a very smart admin that getting this right transferring in and out of AIX is just hard. 
 
