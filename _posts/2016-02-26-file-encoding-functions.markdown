@@ -49,3 +49,121 @@ function Get-TextBytesTable
     }
 }
 {%endhighlight%}
+
+Let's create a couple files and take a look at some of the output this function will give us.
+
+{%highlight powershell%}
+$string = "Hello World!`r`nAnd here we have another line!"
+$string | Set-Content c:\TestFile.txt -Encoding Ascii
+$string | Set-Content c:\TestFile2.txt -Encoding UTF32
+(Get-Content C:\TestFile.txt).trim() -join [char]10 | Set-Content c:\testFile3.txt -Encoding Ascii -NoNewline
+
+Get-TextBytesTable -path c:\TestFile.txt -count 100
+Get-TextBytesTable -path c:\testFile2.txt -count 100
+Get-TextBytesTable -path c:\testFile3.txt -count 100
+{%endhighlight%}
+
+character Decimal Hex 
+--------- ------- --- 
+        ÿ     255 0xff
+        þ     254 0xfe
+                0 0x0 
+                0 0x0 
+        H      72 0x48
+                0 0x0 
+                0 0x0 
+                0 0x0 
+        e     101 0x65
+                0 0x0 
+                0 0x0 
+                0 0x0 
+        l     108 0x6c
+                0 0x0 
+                0 0x0 
+                0 0x0 
+        l     108 0x6c
+                0 0x0 
+                0 0x0 
+                0 0x0 
+        o     111 0x6f
+                0 0x0 
+                0 0x0 
+                0 0x0 
+               32 0x20
+                0 0x0 
+                0 0x0 
+                0 0x0 
+        W      87 0x57
+                0 0x0 
+                0 0x0 
+                0 0x0 
+        o     111 0x6f
+                0 0x0 
+                0 0x0 
+                0 0x0 
+        r     114 0x72
+                0 0x0 
+                0 0x0 
+                0 0x0 
+        l     108 0x6c
+                0 0x0 
+                0 0x0 
+                0 0x0 
+        d     100 0x64
+                0 0x0 
+                0 0x0 
+                0 0x0 
+        !      33 0x21
+                0 0x0 
+                0 0x0 
+                0 0x0 
+      ...      13 0xd 
+                0 0x0 
+                0 0x0 
+                0 0x0 
+      ...      10 0xa 
+                0 0x0 
+                0 0x0 
+                0 0x0 
+        A      65 0x41
+                0 0x0 
+                0 0x0 
+                0 0x0 
+        n     110 0x6e
+                0 0x0 
+                0 0x0 
+                0 0x0 
+        d     100 0x64
+                0 0x0 
+                0 0x0 
+                0 0x0 
+               32 0x20
+                0 0x0 
+                0 0x0 
+                0 0x0 
+        h     104 0x68
+                0 0x0 
+                0 0x0 
+                0 0x0 
+        e     101 0x65
+                0 0x0 
+                0 0x0 
+                0 0x0 
+        r     114 0x72
+                0 0x0 
+                0 0x0 
+                0 0x0 
+        e     101 0x65
+                0 0x0 
+                0 0x0 
+                0 0x0 
+               32 0x20
+                0 0x0 
+                0 0x0 
+                0 0x0 
+        w     119 0x77
+                0 0x0 
+                0 0x0 
+                0 0x0 
+        e     101 0x65
+
