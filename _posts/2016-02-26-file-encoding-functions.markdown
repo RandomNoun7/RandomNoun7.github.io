@@ -185,7 +185,7 @@ character Decimal Hex
                 0 0x0 
 {%endhighlight%}
 
-Lastly we see what the bytes look like in a file that looks fine to the linux admin but looks like just a blob or text for us. This simple file is easy to fix manually, but if you're trying to set up automated data imports on a Windows system, this can be a real pain.
+Lastly we see what the bytes look like in a file that looks fine to the linux admin but looks like just a blob of text to us. This simple file is easy to fix manually, but if you're trying to set up automated data imports on a Windows system, this can be a real pain.
 {%highlight powershell%}
 PS C:\> Get-TextBytesTable -Path .\testFile3.txt -count 100
 
