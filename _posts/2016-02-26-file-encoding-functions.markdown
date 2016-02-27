@@ -244,7 +244,9 @@ That last command really shows us how we can make the other guys life easier for
 (Get-Content C:\TestFile.txt) -join [char]10 | Set-Content c:\testFile3.txt -Encoding Ascii -NoNewline
 {%endhighlight%}
 
-Get-Content reads a file's content, but it will break up each line into a discreet string object, stripping it's line endings in the process. The syntax forces the entire file to be processed at once and the newly created array of string objects is handed off to the -join operator. We join by char 10, in this case to give us Linux line endings. We pass that resulting string off to Set-Content choosing ASCII as our encoding (encoding can be whatever the recipient wants), ensuring that we use -NoNewline so we don't get a Windows line ending appended at the very end of the file.
+Get-Content reads a file's content, but it will break up each line into a discreet string object, stripping its line endings in the process. The syntax forces the entire file to be processed at once and the newly created array of string objects is handed off to the -join operator. We join by char 10 in this case to give us Linux line endings. We pass that resulting string off to Set-Content choosing ASCII as our encoding (encoding can be whatever the recipient wants), ensuring that we use -NoNewline so we don't get a Windows line ending appended at the very end of the file. Now you can do a binary file transfer and the Linux system is happy.
+
+Need to terminate lines with a "~"? yeah I've seen it. Just use -join [char]126. Any crazy line terminator they want, you can provide.
 
 This also gives us insight into how to fix Linux line endings that they can't figure out how to fix for us. 
 {%highlight powershell%}
