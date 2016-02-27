@@ -63,7 +63,7 @@ Get-TextBytesTable -path c:\testFile2.txt -count 100
 Get-TextBytesTable -path c:\testFile3.txt -count 100
 {%endhighlight%}
 
-With the command and output below we see that the first file is a very plain ASII encoded file. No [byte order mark]()https://www.w3.org/International/questions/qa-byte-order-mark.en.php) or anything silly like that. Notice the Char 13 and Char 10. That's our line break.
+With the command and output below we see that the first file is a very plain ASII encoded file. No [byte order mark](https://www.w3.org/International/questions/qa-byte-order-mark.en.php) or anything silly like that. Notice the Char 13 and Char 10. That's our line break.
 {%highlight powershell%}
 PS C:\> Get-TextBytesTable -Path .\testFile.txt -count 100
 
