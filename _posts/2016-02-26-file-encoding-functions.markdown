@@ -63,6 +63,7 @@ Get-TextBytesTable -path c:\testFile2.txt -count 100
 Get-TextBytesTable -path c:\testFile3.txt -count 100
 {%endhighlight%}
 
+{%highlight powershell%}
 character Decimal Hex 
 --------- ------- --- 
         ÿ     255 0xff
@@ -166,4 +167,4 @@ character Decimal Hex
                 0 0x0 
                 0 0x0 
         e     101 0x65
-
+{%endhighlight%}
