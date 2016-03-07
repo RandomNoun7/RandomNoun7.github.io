@@ -68,4 +68,4 @@ function Validate-TextBox
 
 With these event handlers in place, every time my cursor leaves the text box the Validate-TextBox function is called with the current text box as the parameter, which then passes the text value to Verify-ADObject. If an object is returned we know it exists and the textbox turns green, and if not we get a red box. Since this is a demo app this is enough, but in reality we would want some checks in place to ensure such things as that a value actually exists in the text box in case someone just clicked on the text box by accident and then left.
 
-![First Text](https://raw.githubusercontent.com/RandomNoun7/RandomNoun7.github.io/master/_images/FirstTest.jpg)
+![First Test](https://raw.githubusercontent.com/RandomNoun7/RandomNoun7.github.io/master/_images/Firsttest.jpg)
