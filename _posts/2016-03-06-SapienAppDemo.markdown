@@ -17,13 +17,13 @@ As we will see shortly, Powershell studio is a good solution for this because it
 ### The App
 ![Initial View](https://raw.githubusercontent.com/RandomNoun7/RandomNoun7.github.io/master/_images/InitalFullScreen.jpg)
 
-In the screenshot above you can see the design view for the app. The app consists of a main form, a tab control with tabs for the stages of testing, with sub controls for data. In the tab you see here I am have a couple text boxes for Active Directory account names. Before the machines are tested I use the app to ensure that the Active Directory accounts we asked for have been created. 
+In the screenshot above you can see the design view for the app. The app consists of a main form, a tab control with tabs for the stages of testing, with sub controls for data. In the tab you see here I have a couple text boxes for Active Directory account names. Before the machines are tested I use the app to ensure that the Active Directory accounts we asked for have been created. 
 
 Notice on the right side the name says textBoxSQLAccount. That is going to be the name of a variable created by the Studio to reference that text box.
 
 ![Add Event](https://raw.githubusercontent.com/RandomNoun7/RandomNoun7.github.io/master/_images/AddEvent.jpg)
 
-In this screenshot we are adding an event handler to the lower text box. When you click ok you get a code block for the objects event handler.
+In this screenshot we are adding an event handler to the lower text box. When you click ok you get a code block for the object's event handler.
 
 ![Event Code Auto Complete](https://raw.githubusercontent.com/RandomNoun7/RandomNoun7.github.io/master/_images/AddEventCodeAutoComplete.jpg)
 
