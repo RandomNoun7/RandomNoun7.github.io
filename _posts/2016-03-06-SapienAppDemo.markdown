@@ -15,4 +15,55 @@ The app I wrote is dropped onto a single server in the environment, and when pro
 As we will see shortly, Powershell studio is a good solution for this because it allows you take advantage of the convenience of Powershell for administering servers, while also taking advantage of event based programming and easily wrapping scripts in a GUI that suits the needs of slightly less technical users.
 
 ### The App
-![My helpful screenshot](https://raw.githubusercontent.com/RandomNoun7/RandomNoun7.github.io/master/_images/InitalFullScreen.jpg)
+![Initial View](https://raw.githubusercontent.com/RandomNoun7/RandomNoun7.github.io/master/_images/InitalFullScreen.jpg)
+
+In the screenshot above you can see the design view for the app. The app consists of a main form, a tab control with tabs for the stages of testing. In the tab you see here I am have a couple text boxes for Active Directory account names. Before the machines are tested I use the app to ensure that the Active Directory accounts we asked for have been created. 
+
+Notice on the right side the name says textBoxSQLAccount. That is going to be the name of a variable created by the Studio to reference that text box.
+
+![Add Event](https://raw.githubusercontent.com/RandomNoun7/RandomNoun7.github.io/master/_images/AddEvent.jpg)
+
+In this screenshot we are adding an event handler to the lower text box. When you click ok you get a code block for the objects event handler.
+
+![Event Code](https://raw.githubusercontent.com/RandomNoun7/RandomNoun7.github.io/master/_images/AddEventCode.jpg)
+
+If you're familiar with Powershell syntax you will recognize a variable with a code block. In the background, when Powershell Studio builds the app, it ensures that code is executed when that event is fired just as the name implies. To keep things neat, the code is factored out into a function and I simply pass the textbox, since both boxes need to run the same check when the Leave event fires. 
+
+![Event Code Auto Complete](https://raw.githubusercontent.com/RandomNoun7/RandomNoun7.github.io/master/_images/AddEventCodeAutoComplete.jpg)
+
+One of the cool things about Powershell Studio is how the really great auto complete incentivises you to write good code. The function Validate-Textbox was defined with a parameter of type System.Windows.Forms.Textbox. Powershell Studio knows it, so when auto complete comes up, it only shows me the variables of the correct type.
+
+The code in Validate-TextBox is as follows:
+{%highlight powershell%}
+function Verify-ADObject
+{
+	param (
+		[string]$name
+	)
+	
+	if ((([ADSISearcher]"Name=$($name)").FindOne(), ([ADSISearcher]"SAMAccountName=$($name)").FindOne() -ne $NULL)[0])
+	{
+		Write-Output $true
+	}
+	else
+	{
+		Write-Output $false
+	}
+}
+
+function Validate-TextBox
+{
+	param (
+		[System.Windows.Forms.TextBox]$textBox
+	)
+	
+	if (Verify-ADObject -name $textBox.Text)
+	{
+		$textBox.BackColor = 'LimeGreen'
+	}
+	else
+	{
+		$textBox.BackColor = 'Red'
+	}
+}
+{%endhighlight%}
