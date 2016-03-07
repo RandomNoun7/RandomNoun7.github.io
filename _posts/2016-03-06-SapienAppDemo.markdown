@@ -25,11 +25,9 @@ Notice on the right side the name says textBoxSQLAccount. That is going to be th
 
 In this screenshot we are adding an event handler to the lower text box. When you click ok you get a code block for the objects event handler.
 
-![Event Code](https://raw.githubusercontent.com/RandomNoun7/RandomNoun7.github.io/master/_images/AddEventCode.jpg)
+![Event Code Auto Complete](https://raw.githubusercontent.com/RandomNoun7/RandomNoun7.github.io/master/_images/AddEventCodeAutoComplete.jpg)
 
 If you're familiar with Powershell syntax you will recognize a variable with a code block. In the background, when Powershell Studio builds the app, it ensures that code is executed when that event is fired just as the name implies. To keep things neat, the code is factored out into a function and I simply pass the textbox, since both boxes need to run the same check when the Leave event fires. 
-
-![Event Code Auto Complete](https://raw.githubusercontent.com/RandomNoun7/RandomNoun7.github.io/master/_images/AddEventCodeAutoComplete.jpg)
 
 One of the cool things about Powershell Studio is how the really great auto complete incentivises you to write good code. The function Validate-Textbox was defined with a parameter of type System.Windows.Forms.Textbox. Powershell Studio knows it, so when auto complete comes up, it only shows me the variables of the correct type.
 
@@ -67,3 +65,7 @@ function Validate-TextBox
 	}
 }
 {%endhighlight%}
+
+With these event handlers in place, every time my cursor leaves the text box the Validate-TextBox function is called with the current text box as the parameter, which then passes the text value to Verify-ADObject. If an object is returned we know it exists and the textbox turns green, and if not we get a red box. Since this is a demo app this is enough, but in reality we would want some checks in place to ensure such things as that a value actually exists in the text box in case someone just clicked on the text box by accident and then left.
+
+![First Text](https://raw.githubusercontent.com/RandomNoun7/RandomNoun7.github.io/master/_images/FirstTest.jpg)
