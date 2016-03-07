@@ -15,4 +15,4 @@ The app I wrote is dropped onto a single server in the environment, and when pro
 As we will see shortly, Powershell studio is a good solution for this because it allows you take advantage of the convenience of Powershell for administering servers, while also taking advantage of event based programming and easily wrapping scripts in a GUI that suits the needs of slightly less technical users.
 
 ### The App
-![My helpful screenshot]({{ site.url }}/_images/InitalFullScreen.jpg)
+![My helpful screenshot](/_images/InitalFullScreen.jpg)
