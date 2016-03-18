@@ -21,11 +21,9 @@ What if the message looked more like:
 Check out the code snippet below and then I'll go over it in detail.
 
 {%highlight powershell%}
-#$tb.add_TextChanged({Write-Host $tb.text})
+$session = New-PSSession -ComputerName $env:COMPUTERNAME
 
-Get-EventSubscriber | Unregister-Event -Force
-
-Get-Job | Remove-Job -Force
+$tb = New-Object System.Windows.Controls.TextBox
 
 $block = {
     $tb.Text = "new value asyncjob6"
@@ -35,11 +33,11 @@ $block = {
 
 $jobName = "MPDEVOPSJENKINSEventTest"
 
-Register-EngineEvent -SourceIdentifier Custom.EventRaise -Action $block
+Register-EngineEvent -SourceIdentifier Custom.RaisedEvent -Action $block
 
 Invoke-command -Session $session -ScriptBlock{
                                                 param([string]$jobName) 
                                                 Start-Sleep -Seconds 10
-                                                New-Event Custom.EventRaise -EventArguments (@{jobName=$jobName})
+                                                New-Event Custom.RaisedEvent -EventArguments (@{jobName=$jobName})
                                             } -ArgumentList $jobName -AsJob -JobName $jobName | out-null
 {%endhighlight%}
