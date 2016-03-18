@@ -3,7 +3,7 @@ published: true
 title: Event Based Asynchronous Job Management In Powershell
 layout: post
 ---
-In my last post I demo'd building an event based GIU app in Powershell Studio. You probably noticed though that some of the code to handle long running tasks in a background job was less than ideal. 
+In my [last post](http://randomnoun7.github.io/2016/03/06/SapienAppDemo.html) I demo'd building an event based GIU app in Powershell Studio. You probably noticed though that some of the code to handle long running tasks in a background job was less than ideal. 
 To recap it was handled as follows:
 
 * Create a timer object
