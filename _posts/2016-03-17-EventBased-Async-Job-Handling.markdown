@@ -61,4 +61,4 @@ Invoke-command -Session $session -ScriptBlock{
 
 **Memory Usage:** I looked for a decent way to do this using runspaces because I think the memory usage is probably lower, but I didn't find a decent way to make it happen. So keep in mind that this works well, but keep an eye on RAM Usage in testing. If you start a loop over a large number of object I can imaging memory consumption getting out of control pretty quickly. But of course, using the looping method the same consideration applies.
 
-Anyway, I hope you like it and please let me know if you think there are ways to improve it! You can reach me on Twitter [@RandomNoun7](https://twitter.com/randomnoun7) and I want to say thanks to 
+Anyway, I hope you like it and please let me know if you think there are ways to improve it! You can reach me on Twitter [@RandomNoun7](https://twitter.com/randomnoun7)
