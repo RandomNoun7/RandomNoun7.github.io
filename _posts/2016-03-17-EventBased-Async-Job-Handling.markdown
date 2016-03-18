@@ -13,7 +13,7 @@ To recap it was handled as follows:
 * The code block checks for job results and hopefully cleans up after itself when the jobs are done. 
 
 It certainly works, but it can hardly be called clean. In fairness, without C#'s background workers, Powershell is at a cleanliness disadvantage, but I think there's still a better way. 
-What if the message looked more like:
+What if the process looked more like:
 
 * Register an event handler that just waits for your job to finish without sitting there and cycling over and over again.
 * Create and start your job
@@ -33,9 +33,9 @@ $block = {
     Get-Job -Name $event.SourceArgs.jobName | Remove-Job -Force
 }
 
-$jobName = "MPDEVOPSJENKINSEventTest"
-
 Register-EngineEvent -SourceIdentifier Custom.RaisedEvent -Action $block
+
+$jobName = "MPDEVOPSJENKINSEventTest"
 
 Invoke-command -Session $session -ScriptBlock{
                                                 param([string]$jobName) 
