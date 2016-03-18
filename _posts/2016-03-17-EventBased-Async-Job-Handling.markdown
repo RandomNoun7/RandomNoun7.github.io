@@ -49,16 +49,22 @@ Invoke-command -Session $session -ScriptBlock{
 
 ### Considerations in this code
 
-**Session Variables:** Creating a session variable takes a little time, but it saves you time later. If you are making a GUI find an unobtrusive like the FormShown event to create session objects to the local server and to any remote servers you want to execute jobs on. That way they will be ready to go when you need to pass them to Invoke-Command. 
+**Session Variables:** Creating a session variable takes a little time, but it saves you time later. If you are making a GUI find an unobtrusive place in your app's execution like the FormShown event to create session objects or even a loading spinner before the user is allowed to start if you need to. Create sessions on the local server and to any remote servers you want to execute jobs on. That way they will be ready to go when you need to pass them to Invoke-Command. 
 
-**Job Names:** There might be a better way to do this, but to allow the code to clean up after itself without looping through all background jobs, it's important that the event handling code have a way to know what job it should delete. In typical use you would probably build a string inside a loop for each job name you need, and pass it into the job. 
+**Job Names:** There might be a better way to do this, but to allow the code to clean up after itself without looping through all background jobs, it's important that the event handling code have a way to know which job it should delete. In typical use you would probably build a string inside a loop for each job name you need, and pass it into the job. 
 
-**Job Name Param:** Your script block you pass into the job needs to take at least one parameter so it can receive the job name you've assigned the job. The problem this solves is allowing the callback code block to identify the job that raised the event so it can delete the job when it's done. If you don't care about deleting the completed job, by all means leave it out.
+**Job Name Param:** The script block you pass into the job needs to take at least one parameter so it can receive the name you've assigned the job. This is important because the jobs result set needs to include this name so the callback code block knows which job it's receiving results from.
 
 **Register-EngineEvent in Remote Code Block:** It's not great that you have to repeat the event name so many times, but it's import that you register the engine event in the main session, and also in the background job code block. In the background code block though you use the -Forward parameter to ensure the event you raise later gets forwarded up to the parent session.
 
-**-EventArguments:** Ensure you pass your output in the form of a Hashtable or other collection that passes the job name back out, and also contains whatever other data you need to process.
+**-EventArguments:** This should be the result of your long running operation.
+
+**-Sender:** The sender will be your job name so the callback codeblock knows which job to clean up.
+
+**Making use of values:** If you have a GUI app it' really easy to make use of the jobs results. You can find the UI element you want to modify and assign the value where it's needed. If you are not in a GUI app you can either create the variable ahead of time and do the assignment in the callback code block, or assign a new variable in the code block, but make sure the scope the variable so that it still exists after the code block completes.
 
 **Memory Usage:** I looked for a decent way to do this using runspaces because I think the memory usage is probably lower, but I didn't find a decent way to make it happen. So keep in mind that this works well, but keep an eye on RAM Usage in testing. If you start a loop over a large number of object I can imaging memory consumption getting out of control pretty quickly. But of course, using the looping method the same consideration applies.
+
+**Why Not Runspaces?:** Run spaces have a lot of advantages besides lower memory usage. One of them is persistence. The runspace doesn't need to be cleaned up when it's done with a task. You can also give it lots function definitions and just ask it to execute them as needed. The problem I ran into was that it was a lot harder to get the runspace to communicate results and data back up to the parent runspace than it was to communicate downward. 
 
 Anyway, I hope you like it and please let me know if you think there are ways to improve it! You can reach me on Twitter [@RandomNoun7](https://twitter.com/randomnoun7)
