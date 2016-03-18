@@ -23,27 +23,27 @@ What if the process looked more like:
 Check out the code snippet below and then I'll go over it in detail.
 
 {%highlight powershell%}
-$session = New-PSSession -ComputerName "RemoteServerName"
+$session = New-PSSession -ComputerName "MPDEVOPSJENKINS"
 
 $tb = New-Object System.Windows.Controls.TextBox
 
 $block = {
-    $tb.Text = "New value from job."
+    Write-host ($event.SourceArgs | Out-String)
 
-    Write-host $tb.Text -BackgroundColor Green -NoNewline
+    $tb.Text = $event.SourceArgs | Out-String
 
-    Get-Job -Name $event.SourceArgs.jobName | Remove-Job -Force
+    Get-Job -Name $sender | Remove-Job -Force
 }
 
 Register-EngineEvent -SourceIdentifier Custom.RaisedEvent -Action $block
 
-$jobName = "EventTestJob"
+$jobName = "MPDEVOPSJENKINSEventTest"
 
 Invoke-command -Session $session -ScriptBlock{
                                                 param([string]$jobName) 
                                                 Start-Sleep -Seconds 10
                                                 Register-EngineEvent Custom.RaisedEvent -Forward
-                                                New-Event Custom.RaisedEvent -EventArguments (@{jobName=$jobName})
+                                                New-Event Custom.RaisedEvent -Sender $jobName -EventArguments (Get-Service)
                                             } -ArgumentList $jobName -AsJob -JobName $jobName | out-null
 {%endhighlight%}
 
