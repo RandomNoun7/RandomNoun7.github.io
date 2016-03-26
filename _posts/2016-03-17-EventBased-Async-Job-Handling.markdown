@@ -23,7 +23,7 @@ What if the process looked more like:
 Check out the code snippet below and then I'll go over it in detail.
 
 {%highlight powershell%}
-$session = New-PSSession -ComputerName "MPDEVOPSJENKINS"
+$session = New-PSSession -ComputerName "Server1"
 
 $tb = New-Object System.Windows.Controls.TextBox
 
@@ -37,7 +37,7 @@ $block = {
 
 Register-EngineEvent -SourceIdentifier Custom.RaisedEvent -Action $block
 
-$jobName = "MPDEVOPSJENKINSEventTest"
+$jobName = "Server1EventTest"
 
 Invoke-command -Session $session -ScriptBlock{
                                                 param([string]$jobName) 
